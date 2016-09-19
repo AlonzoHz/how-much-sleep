@@ -1,30 +1,30 @@
 <html>
 	<head>
-		<title>IGXHoS</title>
+		<title>How Much Sleep?</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-        <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+		<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 	</head>
 	<body>
-        <div id="time"></div>
-    
+	        <div id="time"></div>
+	    
 		<script>
-            var now = new Date();
-            var hour = now.getHours();
-            var wakeup = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 30, 0, 0);
-            if (hour > 7) {
-                wakeup.setDate(now.getDate() + 1);
-            }
-            
-            var delta = Math.abs(wakeup - now);
-            var milliseconds = parseInt((delta%1000)/100)
-            , seconds = parseInt((delta/1000)%60)
-            , minutes = parseInt((delta/(1000*60))%60)
-            , hours = parseInt((delta/(1000*60*60))%24);
-            
-            var text = "THAT'S IT, I'VE GOT " + hours + " HOURS AND " + minutes + " MINUTES OF SLEEP LEFT";
-            document.getElementById("time").innerHTML = text;
-            var msg = new SpeechSynthesisUtterance(text);
-            window.speechSynthesis.speak(msg);
-        </script>
+	            var now = new Date();
+	            var hour = now.getHours();
+	            var wakeup = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 30, 0, 0);
+	            if (hour > 7) {
+	                wakeup.setDate(now.getDate() + 1);
+	            }
+	            
+	            var delta = Math.abs(wakeup - now);
+	            var milliseconds = parseInt((delta%1000)/100)
+	            , seconds = parseInt((delta/1000)%60)
+	            , minutes = parseInt((delta/(1000*60))%60)
+	            , hours = parseInt((delta/(1000*60*60))%24);
+	            
+	            var text = "THAT'S IT, I'VE GOT " + hours + " HOURS AND " + minutes + " MINUTES OF SLEEP LEFT";
+	            document.getElementById("time").innerHTML = text;
+	            var msg = new SpeechSynthesisUtterance(text);
+	            window.speechSynthesis.speak(msg);
+	        </script>
 	</body>
 </html>
